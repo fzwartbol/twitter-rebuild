@@ -8,8 +8,7 @@ import java.time.LocalDateTime;
 @Data
 @RequiredArgsConstructor
 public class LikeRequest {
-    private final Long likeId;
     private final Long tweetId;
     private final Long userId;
-    private final LocalDateTime likedDate;
+//    private final LocalDateTime likedDate;
 }

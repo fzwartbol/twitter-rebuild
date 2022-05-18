@@ -1,8 +1,9 @@
 package com.example.springbootjpamanytomany;
 
-import com.example.springbootjpamanytomany.enitity.Hashtag;
-import com.example.springbootjpamanytomany.enitity.Tweet;
-import com.example.springbootjpamanytomany.enitity.User;
+import com.example.springbootjpamanytomany.entity.Hashtag;
+import com.example.springbootjpamanytomany.entity.Like;
+import com.example.springbootjpamanytomany.entity.Tweet;
+import com.example.springbootjpamanytomany.entity.User;
 import com.example.springbootjpamanytomany.repository.HashTagRepository;
 import com.example.springbootjpamanytomany.repository.TweetRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -38,6 +39,8 @@ public class SpringbootJpaManytomanyApplication implements CommandLineRunner {
         tweet.getHashtags().add(hashtag);
         tweet.getHashtags().add(hashtag2);
         tweet.setUser(user);
+
+//        tweet.getLikes().add(new Like(1L,LocalDateTime.now()));
 
         this.tweetRepository.save(tweet);
     }

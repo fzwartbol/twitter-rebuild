@@ -1,7 +1,7 @@
 package com.example.springbootjpamanytomany.service;
 
 import com.example.springbootjpamanytomany.repository.HashTagRepository;
-import com.example.springbootjpamanytomany.enitity.Hashtag;
+import com.example.springbootjpamanytomany.entity.Hashtag;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

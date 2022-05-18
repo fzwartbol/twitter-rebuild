@@ -1,6 +1,6 @@
 package com.example.springbootjpamanytomany.repository;
 
-import com.example.springbootjpamanytomany.enitity.User;
+import com.example.springbootjpamanytomany.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

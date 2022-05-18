@@ -1,7 +1,7 @@
 package com.example.springbootjpamanytomany.service;
 
 import com.example.springbootjpamanytomany.repository.UserRepository;
-import com.example.springbootjpamanytomany.enitity.User;
+import com.example.springbootjpamanytomany.entity.User;
 import com.example.springbootjpamanytomany.exceptions.UserNotFoundException;
 import com.example.springbootjpamanytomany.request.UserRequest;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.springbootjpamanytomany;
 
 
-import com.example.springbootjpamanytomany.enitity.Tweet;
+import com.example.springbootjpamanytomany.entity.Tweet;
 import com.example.springbootjpamanytomany.repository.TweetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

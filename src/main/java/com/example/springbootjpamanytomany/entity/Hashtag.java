@@ -1,4 +1,4 @@
-package com.example.springbootjpamanytomany.enitity;
+package com.example.springbootjpamanytomany.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

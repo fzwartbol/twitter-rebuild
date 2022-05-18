@@ -1,6 +1,6 @@
 package com.example.springbootjpamanytomany.controller;
 
-import com.example.springbootjpamanytomany.enitity.Tweet;
+import com.example.springbootjpamanytomany.entity.Tweet;
 import com.example.springbootjpamanytomany.request.TweetRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

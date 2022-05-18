@@ -1,6 +1,6 @@
 package com.example.springbootjpamanytomany.controller;
 
-import com.example.springbootjpamanytomany.enitity.User;
+import com.example.springbootjpamanytomany.entity.User;
 import com.example.springbootjpamanytomany.request.UserRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

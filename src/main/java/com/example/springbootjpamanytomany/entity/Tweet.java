@@ -1,4 +1,4 @@
-package com.example.springbootjpamanytomany.enitity;
+package com.example.springbootjpamanytomany.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -42,6 +42,15 @@ public class Tweet {
     @JsonIgnoreProperties("tweets")
     private Set<Hashtag> hashtags = new HashSet<>();
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "tweet_likes",
+            joinColumns = @JoinColumn(name = "tweet_id"),
+            inverseJoinColumns = @JoinColumn(name = "like_id")
+    )
+    @JsonIgnoreProperties("tweets")
+    private Set<Like> likes = new HashSet<>();
+
     public Tweet(String title, String message, LocalDateTime publicationDate) {
         this.title = title;
         this.message = message;
@@ -49,6 +58,10 @@ public class Tweet {
     }
 
     public Tweet() {
+    }
+
+    public Tweet(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
@@ -99,5 +112,11 @@ public class Tweet {
         this.hashtags = hashtags;
     }
 
+    public Set<Like> getLikes() {
+        return likes;
+    }
 
+    public void setLikes(Set<Like> likes) {
+        this.likes = likes;
+    }
 }

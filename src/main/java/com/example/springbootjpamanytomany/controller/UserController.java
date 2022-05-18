@@ -1,6 +1,6 @@
 package com.example.springbootjpamanytomany.controller;
 
-import com.example.springbootjpamanytomany.enitity.User;
+import com.example.springbootjpamanytomany.entity.User;
 import com.example.springbootjpamanytomany.request.UserRequest;
 import com.example.springbootjpamanytomany.service.UserService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.example.springbootjpamanytomany.repository;
 
-import com.example.springbootjpamanytomany.enitity.Hashtag;
+import com.example.springbootjpamanytomany.entity.Hashtag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

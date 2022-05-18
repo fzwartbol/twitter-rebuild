@@ -1,6 +1,6 @@
 package com.example.springbootjpamanytomany.controller;
 
-import com.example.springbootjpamanytomany.enitity.Tweet;
+import com.example.springbootjpamanytomany.entity.Tweet;
 import com.example.springbootjpamanytomany.request.TweetRequest;
 import com.example.springbootjpamanytomany.service.TweetService;
 import lombok.RequiredArgsConstructor;
@@ -47,22 +47,13 @@ public class TweetController implements TweetControllerInterface{
 
     @Override
     public ResponseEntity<?> findTweetsPaginated(Optional<Integer> page, Optional<String> sortBy, List<String> hashtag) {
-        return ResponseEntity.ok("ok");
+        return ResponseEntity.ok(tweetService.findTweetsByHashtag(hashtag));
     }
 
     @Override
     public ResponseEntity<Page<Tweet>> findAllTweetsPaginated(Optional<Integer> page, Optional<String> sortBy) {
         return ResponseEntity.ok(tweetService.findAllPaginated(page,sortBy));
     }
-//    @GetMapping("/tweet/{tweetId}")
-//    ResponseEntity<Tweet> findTweetById(@PathVariable("tweetId") Long tweetId);
-@GetMapping("/hashtag")
-    public ResponseEntity<Tweet> saveHashtag(TweetRequest request) {
-        return ResponseEntity.ok(tweetService.saveTweet(request));
-    }
 
-    public ResponseEntity<Tweet> addHashtag(TweetRequest request) {
-        return ResponseEntity.ok(tweetService.saveTweet(request));
-    }
 
 }
