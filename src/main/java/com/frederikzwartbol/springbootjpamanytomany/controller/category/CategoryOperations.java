@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 public interface CategoryOperations {
     String PREFIX = "/category";
 
-
     @PostMapping
     ResponseEntity<Category> saveCategory (@RequestBody CategoryRequest request);
 

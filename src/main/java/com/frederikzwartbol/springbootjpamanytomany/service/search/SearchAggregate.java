@@ -1,11 +1,22 @@
 package com.frederikzwartbol.springbootjpamanytomany.service.search;
 
-import com.frederikzwartbol.springbootjpamanytomany.models.entity.tweet.Tweet;
-import com.frederikzwartbol.springbootjpamanytomany.models.entity.user.User;
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.tweet.TweetMinimalDTO;
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.user.UserMinimalDTO;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.data.domain.Page;
 
-public class SearchAggregate {
+import java.time.LocalDateTime;
 
-    Page<Tweet> queryTweets;
-    Page<User>  queryUsers;
+@Data
+@Builder
+public class SearchAggregate {
+    private String query;
+    private String fieldType;
+    private String src;
+    private int page;
+    private String sortBy;
+    private LocalDateTime timestamp;
+    private Page<TweetMinimalDTO> queryTweets;
+    private Page<UserMinimalDTO>  queryUsers;
 }

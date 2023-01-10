@@ -1,4 +1,4 @@
-package com.frederikzwartbol.springbootjpamanytomany.controller.user;
+package com.frederikzwartbol.springbootjpamanytomany.controller.user.feed;
 
 import com.frederikzwartbol.springbootjpamanytomany.service.FeedService;
 import com.frederikzwartbol.springbootjpamanytomany.util.mapper.TweetMapper;

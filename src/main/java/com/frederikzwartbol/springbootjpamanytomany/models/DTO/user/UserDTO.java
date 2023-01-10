@@ -1,4 +1,4 @@
-package com.frederikzwartbol.springbootjpamanytomany.models.DTO;
+package com.frederikzwartbol.springbootjpamanytomany.models.DTO.user;
 
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.tweet.Tweet;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.user.User;
@@ -14,7 +14,7 @@ import java.util.Set;
 @Data
 @Builder
 @AllArgsConstructor
-public class UserResponseDTO implements Serializable {
+public class UserDTO implements Serializable {
     private final Long userId;
     private final String firstName;
     private final String lastName;

@@ -1,7 +1,7 @@
 package com.frederikzwartbol.springbootjpamanytomany.controller.tweet.operations;
 
-import com.frederikzwartbol.springbootjpamanytomany.models.DTO.TweetMinimalResponseDTO;
-import com.frederikzwartbol.springbootjpamanytomany.models.DTO.TweetDetailResponseDTO;
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.tweet.TweetMinimalDTO;
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.tweet.TweetDTO;
 import com.frederikzwartbol.springbootjpamanytomany.models.request.TweetRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -15,45 +15,45 @@ public interface TweetOperations {
     String PREFIX = "/tweet";
 
     @GetMapping
-    ResponseEntity<List<TweetMinimalResponseDTO>> findAllTweets();
+    ResponseEntity<List<TweetMinimalDTO>> findAllTweets();
 
     @PostMapping
-    ResponseEntity<TweetDetailResponseDTO> saveTweet(@RequestBody TweetRequest request);
+    ResponseEntity<TweetDTO> saveTweet(@RequestBody TweetRequest request);
 
     @GetMapping("/{tweetId}")
-    ResponseEntity<TweetDetailResponseDTO> findTweetById(@PathVariable("tweetId") Long tweetId);
+    ResponseEntity<TweetDTO> findTweetById(@PathVariable("tweetId") Long tweetId);
 
     @PutMapping
-    ResponseEntity<TweetDetailResponseDTO> updateTweet(@RequestBody TweetRequest request);
+    ResponseEntity<TweetDTO> updateTweet(@RequestBody TweetRequest request);
 
     @DeleteMapping("/{tweetId}")
     ResponseEntity<?> deleteTweetById (@PathVariable("tweetId") Long tweetId);
 
     @GetMapping("/paginated")
-    ResponseEntity<Page<TweetMinimalResponseDTO>> findAllTweetsPaginated(
+    ResponseEntity<Page<TweetMinimalDTO>> findAllTweetsPaginated(
             @RequestParam Optional<Integer> page,
             @RequestParam Optional<String> sortBy);
 
     @GetMapping("/user/{userId}/")
-    ResponseEntity<Page<TweetMinimalResponseDTO>> findTweetsUser(
+    ResponseEntity<Page<TweetMinimalDTO>> findTweetsUser(
             @PathVariable("userId") Long userId,
             @RequestParam Optional<Integer> page,
             @RequestParam Optional<String> sortBy);
 
     @GetMapping("/user/{userId}/with_replies")
-    ResponseEntity<Page<TweetMinimalResponseDTO>> findTweetsWithRepliesUser(
+    ResponseEntity<Page<TweetMinimalDTO>> findTweetsWithRepliesUser(
             @PathVariable("userId") Long userId,
             @RequestParam Optional<Integer> page,
             @RequestParam Optional<String> sortBy);
 
     @GetMapping("/user/{userId}/media")
-    ResponseEntity<Page<TweetMinimalResponseDTO>> findTweetsWithMediaUser(
+    ResponseEntity<Page<TweetMinimalDTO>> findTweetsWithMediaUser(
             @PathVariable("userId") Long userId,
             @RequestParam Optional<Integer> page,
             @RequestParam Optional<String> sortBy);
 
     @GetMapping("liked/user/{userId}")
-    ResponseEntity<Page<TweetMinimalResponseDTO>> getLikedTweetsByUser(@PathVariable("userId") Long userId,
-                                                                       @RequestParam Optional<Integer> page,
-                                                                       @RequestParam Optional<String> sortBy);
+    ResponseEntity<Page<TweetMinimalDTO>> getLikedTweetsByUser(@PathVariable("userId") Long userId,
+                                                               @RequestParam Optional<Integer> page,
+                                                               @RequestParam Optional<String> sortBy);
 }

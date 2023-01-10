@@ -79,8 +79,8 @@ public class Tweet implements Serializable {
     @PrimaryKeyJoinColumn
     private Media media;
 
-    /** Derived values */
-
+    /** Derived Values:
+     * Values are set with formula function over entity is loaded from the database */
     @Formula("(SELECT count(*) from likes l where l.tweet_id = id)")
     private long likeCount;
     @Formula("(SELECT count(*) from tweets_replies r where r.tweet_id = id)")

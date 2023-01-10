@@ -2,6 +2,7 @@ package com.frederikzwartbol.springbootjpamanytomany.repository;
 
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.Category;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.Hashtag;
+import com.frederikzwartbol.springbootjpamanytomany.models.entity.tweet.MediaTypeFormat;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.tweet.Tweet;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.user.User;
 import com.frederikzwartbol.springbootjpamanytomany.repository.aggregates.TweetCountAggregate;
@@ -13,6 +14,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
@@ -21,6 +23,7 @@ public interface TweetRepository extends JpaRepository<Tweet,Long> {
     /** Find all tweets */
     Page<Tweet> findAllByParentTweetIsNull(Pageable page);
     Page<Tweet> findAllByHashtagsIn(Pageable page, List<Hashtag> hashtags);
+    Page<Tweet> findAllByHashtagsInAndMedia_Type(List<Hashtag> hashtags, MediaTypeFormat media, Pageable page);
     Page<Tweet> findAllByCategoryIn(Pageable page, Set<Category> categories);
     Page<Tweet> findAllByCategory_CategoryName(Pageable pageable, String categoryName);
 

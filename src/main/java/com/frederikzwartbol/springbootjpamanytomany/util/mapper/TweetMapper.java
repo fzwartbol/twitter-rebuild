@@ -1,8 +1,8 @@
 package com.frederikzwartbol.springbootjpamanytomany.util.mapper;
 
 import com.frederikzwartbol.springbootjpamanytomany.models.DTO.MetaTweetResponseDTO;
-import com.frederikzwartbol.springbootjpamanytomany.models.DTO.TweetMinimalResponseDTO;
-import com.frederikzwartbol.springbootjpamanytomany.models.DTO.TweetDetailResponseDTO;
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.tweet.TweetMinimalDTO;
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.tweet.TweetDTO;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.tweet.Tweet;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 
 @Data
 public class TweetMapper {
-    public static TweetMinimalResponseDTO createMinimalTweetDTO(Tweet tweet) {
-        TweetMinimalResponseDTO dto = new TweetMinimalResponseDTO();
+    public static TweetMinimalDTO createMinimalTweetDTO(Tweet tweet) {
+        TweetMinimalDTO dto = new TweetMinimalDTO();
         BeanUtils.copyProperties( tweet, dto);
         Optional.ofNullable(tweet.getParentTweet())
                 .ifPresent(optionalTweet -> dto.setParentTweet(createMinimalTweetDTO(optionalTweet)));
@@ -22,8 +22,8 @@ public class TweetMapper {
         return dto;
     }
 
-    public static TweetMinimalResponseDTO createMinimalTweetDTO(Tweet tweet, MetaTweetResponseDTO metaData) {
-        TweetMinimalResponseDTO dto = new TweetMinimalResponseDTO();
+    public static TweetMinimalDTO createMinimalTweetDTO(Tweet tweet, MetaTweetResponseDTO metaData) {
+        TweetMinimalDTO dto = new TweetMinimalDTO();
         BeanUtils.copyProperties( tweet, dto);
         Optional.ofNullable(tweet.getParentTweet())
                 .ifPresent(optionalTweet -> dto.setParentTweet(createMinimalTweetDTO(optionalTweet)));
@@ -33,10 +33,9 @@ public class TweetMapper {
     }
 
 
-    public static TweetDetailResponseDTO createDetailTweetDTO(Tweet tweet) {
-        TweetDetailResponseDTO dto = new TweetDetailResponseDTO();
+    public static TweetDTO createDetailTweetDTO(Tweet tweet) {
+        TweetDTO dto = new TweetDTO();
         BeanUtils.copyProperties( tweet, dto);
-//        log.info("tweet detail parent:{}",tweet.getParentTweet());
         Optional.ofNullable(tweet.getParentTweet())
                 .ifPresent(optionalTweet -> dto.setParentTweet(createMinimalTweetDTO(optionalTweet)));
         dto.setReplies(tweet.getReplies().stream().map(TweetMapper::createDetailTweetDTO).collect(Collectors.toSet()));
@@ -47,10 +46,9 @@ public class TweetMapper {
         return dto;
     }
 
-    public static TweetDetailResponseDTO createDetailTweetDTO(Tweet tweet, MetaTweetResponseDTO metaData) {
-        TweetDetailResponseDTO dto = new TweetDetailResponseDTO();
+    public static TweetDTO createDetailTweetDTO(Tweet tweet, MetaTweetResponseDTO metaData) {
+        TweetDTO dto = new TweetDTO();
         BeanUtils.copyProperties( tweet, dto);
-//        log.info("tweet detail parent:{}",tweet.getParentTweet());
         Optional.ofNullable(tweet.getParentTweet())
                 .ifPresent(optionalTweet -> dto.setParentTweet(createMinimalTweetDTO(optionalTweet)));
         dto.setReplies(tweet.getReplies().stream().map(TweetMapper::createDetailTweetDTO).collect(Collectors.toSet()));

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
-@RequestMapping(TrendingOperations.PREFIX )
-public interface TrendingOperations {
+@RequestMapping(TrendingGlobalOperations.PREFIX )
+public interface TrendingGlobalOperations {
     String PREFIX="/trending";
 
     @GetMapping("/hot")

@@ -13,7 +13,7 @@ public interface SearchOperation {
 
     @GetMapping("")
     ResponseEntity<?> searchTwitter(
-            @RequestParam String[] q,
+            @RequestParam String q,
             @RequestParam(defaultValue = "tweet") String f,
             @RequestParam(defaultValue = "typed_query") String src,
             @RequestParam Optional<Integer> page,

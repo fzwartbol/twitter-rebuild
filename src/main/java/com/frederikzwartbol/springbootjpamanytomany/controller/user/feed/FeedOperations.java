@@ -1,4 +1,4 @@
-package com.frederikzwartbol.springbootjpamanytomany.controller.user;
+package com.frederikzwartbol.springbootjpamanytomany.controller.user.feed;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

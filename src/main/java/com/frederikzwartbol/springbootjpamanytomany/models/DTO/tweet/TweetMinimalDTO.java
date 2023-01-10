@@ -1,5 +1,6 @@
-package com.frederikzwartbol.springbootjpamanytomany.models.DTO;
+package com.frederikzwartbol.springbootjpamanytomany.models.DTO.tweet;
 
+import com.frederikzwartbol.springbootjpamanytomany.models.DTO.MetaTweetResponseDTO;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.Category;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.Hashtag;
 import com.frederikzwartbol.springbootjpamanytomany.models.entity.user.User;
@@ -21,7 +22,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-public class TweetMinimalResponseDTO implements Serializable {
+public class TweetMinimalDTO implements Serializable {
     private  Long id;
     private  String message;
     private LocalDateTime publicationDate;
@@ -32,7 +33,7 @@ public class TweetMinimalResponseDTO implements Serializable {
     @JsonIgnoreProperties("tweets")
     private Category category;
     @JsonIgnoreProperties({"parentTweet","replies"})
-    private TweetMinimalResponseDTO parentTweet;
+    private TweetMinimalDTO parentTweet;
 
     private long likeCount;
     private long replyCount;

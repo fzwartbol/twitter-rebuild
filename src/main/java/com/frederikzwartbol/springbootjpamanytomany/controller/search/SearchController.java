@@ -22,7 +22,7 @@ public class SearchController implements SearchOperation{
      * @return
      */
     @Override
-    public ResponseEntity<?> searchTwitter(String[] q, String f, String src, Optional<Integer> page, Optional<String> sortBy) {
+    public ResponseEntity<?> searchTwitter(String q, String f, String src, Optional<Integer> page, Optional<String> sortBy) {
         return ResponseEntity.ok(searchService.returnSearchQuery(q,f,src,page,sortBy));
     }
 

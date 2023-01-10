@@ -38,7 +38,6 @@ public class SpringbootJpaManytomanyApplication implements CommandLineRunner {
         this.roleRepository = roleRepository;
     }
 
-
     public static void main(String[] args) {
         SpringApplication.run(SpringbootJpaManytomanyApplication.class, args);
     }
