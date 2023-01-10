@@ -1,13 +1,17 @@
 import Profile from "../../components/profile/Profile";
 import {getTwitterHandle} from "../../api/axios";
 import Layout from "../../components/layout/Layout";
+import BlockMid from "../../components/layout/BlockMid";
+import BlockRight from "../../components/layout/blockright/BlockRight";
 
 const index = ({userProfile}) => {
   return (
       <Layout>
-        <main className="bg-black min-h-screen flex max-width-[1500px] mx-auto">
-          <Profile userProfile={userProfile}/>
-        </main>
+          <BlockMid>
+            <Profile userProfile={userProfile}/>
+          </BlockMid>
+          <BlockRight>
+          </BlockRight>
       </Layout>
   )
 }

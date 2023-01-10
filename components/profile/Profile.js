@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
 import { useState } from 'react';
-import { SparklesIcon } from "@heroicons/react/outline";
 import {getTwitterHandle,getTweetsUserPaginated, getTweetsUserWithMedia, getTweetsAndRepliesUserPaginated, getTweetsLikedByUserPaginated, postFollowUser, postUnfollowUser} from "../../api/axios";
 import Image from 'next/image'
 import Tweet from "../tweet/Tweet"
 import ProfileInformation from './ProfileInformation';
 import ButtonFeed from './ButtonFeed';
+import {SparklesIcon} from "@heroicons/react/24/outline";
 
 
 const Profile = ({ userProfile }) => {
@@ -44,7 +44,6 @@ const { id: userId,
             setTweets(data.content) 
         }
             )
-
         },[selected])
 
     const unfollowUser = () => {
@@ -73,10 +72,8 @@ const { id: userId,
     }
 
     const activeButton = (selected) => {
-        console.log(selected)
         buttons.filter(button => button.name == selected).map(button => button.selected=true)
         setButtonList(buttons);
-        // console.log(buttonList)
     }
 
     const feedButtons =  buttonList.map(button => {
@@ -84,7 +81,7 @@ const { id: userId,
     })
     
     return (
-        <div className="text-white flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
+        <div className="w-full">
             {userProfile &&
                 <div>
                     <div className="text-[#d9d9d9] flex items-center
@@ -100,36 +97,44 @@ const { id: userId,
                                 <div className="flex ml-5 mb-5">
                                     <Image
                                         src={profileImage}
-                                        width="150" height="150"
+                                        width="125" height="125"
                                         alt="Picture of the author"
                                         className="ml-2 mt-2 rounded-full border-gray-700 border hover:cursor-pointer hover:"
                                     />
                                 </div>
                                 <div className="flex justify-center items-center aright-0">
                                     <div className="mr-5 mt-1 ">
-                                        <button onClick= {() => following ? unfollowUser() : followUser()} className="bg-white text-black
-                                        rounded-full w-32 h-[32px] text-lg font-bold 
+                                        {userId != getLoggedInUserId() ?
+                                            <button onClick={() => following ? unfollowUser() : followUser()}
+                                                    className="bg-white text-black
+                                        rounded-full w-24 h-[32px] text-sm font-bold
                                         hover:bg-gray-100
                                         ">{following ? "Following" : "Follow"}</button>
+                                        : <button
+                                                  className="bg-white text-black
+                                        rounded-full w-24 h-[32px] text-sm font-bold
+                                        hover:bg-gray-100
+                                        ">Edit Profile</button>
+                                        }
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex mb-1 ">
+                        <div className="flex mb-1 justify-bet ">
                             <h2 className="font-bold text-lg pl-3">
                                 <a className="hover:underline hover:cursor-pointer" >{firstName + ' ' + lastName + ' '}</a>
                             </h2>
-                            <a className="font-normal text-gray-500 ml-2" >@{twitterHandle}</a>
+                            <a className="text-sm text-gray-500 ml-2" >@{twitterHandle}</a>
                         </div> 
                         <ProfileInformation profileInformation={profileInformation}/>
-                        <div className="flex pt-1 text-sm">
-                            <div className="flex ml-5 pb-2 hover:cursor-pointer">
+                        <div className="flex pt-1 text-xs">
+                            <div className="flex ml-5 pb-2 hover:cursor-pointer ">
                                 <p className="font-bold">{following.length}</p>
-                                <p className="text-gray-500 ml-1">Following</p>
+                                <p className="text-gray-500 ml-1 hover:text-white hover:underline">Following</p>
                             </div>
-                            <div className="flex ml-7 hover:cursor-pointer">
+                            <div className="flex ml-7 hover:cursor-pointer hover:text-white">
                                 <p className="font-bold">{followers.length}</p>
-                                <div className="text-gray-500 ml-1">Followers</div>
+                                <div className="text-gray-500 ml-1 hover:text-white hover:underline ">Followers</div>
                             </div>
                         </div>
                         <div className="flex w-full justify-between">

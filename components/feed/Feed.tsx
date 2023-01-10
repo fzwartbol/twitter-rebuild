@@ -1,11 +1,11 @@
 import React from 'react'
-import { SparklesIcon } from "@heroicons/react/outline";
 import Input from "../Input";
 import Tweet from "../tweet/Tweet";
 import {useState, useRef, useCallback} from 'react';
 import useFeed from "../hooks/useFeed"
 import Spinner from "../spinner/Spinner"
 import useAuth from '../hooks/useAuth'
+import {SparklesIcon} from "@heroicons/react/24/outline";
 
 const Feed = () => {
     const [tweetCallbackData, setTweetCallbackData] = useState("");
@@ -17,10 +17,7 @@ const Feed = () => {
         hasNextPage
     } = useFeed(pageNum)
 
-    
-    const { auth } = useAuth();
-    console.log(auth)
-    console.log(auth?.accessToken)
+    // const { auth } = useAuth();
 
     const intObserver = useRef()
     const lastPostRef = useCallback( tweet => {
@@ -41,10 +38,10 @@ const Feed = () => {
         .map((tweet, i) => {
             if (results.length === i+1) return <Tweet ref={lastPostRef} key={tweet.id} tweet={tweet}/>
                 return <Tweet  key={tweet.id} tweet={tweet} />
-            })  
-                  
+            })
+
     return (
-        <div className="text-white flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
+        <div className="w-full">
            <div className="text-[#d9d9d9] flex items-center
            sm:justify-between py-2 px-3 sticky top-0 z-50 bg-black border-b border-gray-700">
                <h2 className="text-lg sm:text-xl font-bold">Home</h2>
@@ -61,12 +58,3 @@ const Feed = () => {
 }
 
 export default Feed
-
-// export async function getServerSideProps(context) {
-//     // const { twitterHandle} = context.query;
-//     // const userProfile =  await getTwitterHandle(twitterHandle)
-  
-//     return {
-//       props: {userProfile: userProfile}, 
-//     }
-//   }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { HeartIcon } from '@heroicons/react/outline';
 import { useState, useEffect } from 'react';
+import {HeartIcon} from "@heroicons/react/24/outline";
 
 const LikeButton = (props) => {
     const [postLiked, setPostLiked] = useState(false)

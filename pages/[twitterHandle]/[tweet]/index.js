@@ -1,14 +1,19 @@
 import React from 'react'
-import { useRouter } from "next/router";
 import TweetDetailPage from "../../../components/tweet/TweetDetailPage";
+import Layout from "../../../components/layout/Layout";
+import BlockMid from "../../../components/layout/BlockMid";
+import BlockRight from "../../../components/layout/blockright/BlockRight";
 
 const index = () => {
-  const router = useRouter();
 
   return (
-  <main className="bg-black min-h-screen flex max-width-[1500px] mx-auto">
-    <TweetDetailPage />
-  </main> 
+  <Layout>
+      <BlockMid>
+        <TweetDetailPage />
+      </BlockMid>
+      <BlockRight>
+      </BlockRight>
+  </Layout>
   )
 }
 

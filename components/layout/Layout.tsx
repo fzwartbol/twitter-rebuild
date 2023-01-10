@@ -1,11 +1,9 @@
 import Sidebar from "./navbar/Sidebar";
 import { useRouter } from 'next/router';
+import {ReactNode} from "react";
 
-interface Props {
-    children: React.ReactNode
-}
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
 
 if (router.pathname.includes('/login')) return children;
@@ -13,9 +11,15 @@ if (router.pathname.includes('/login')) return children;
 if (router.pathname.includes('/register')) return children
 
   return (
-    <>
-      <Sidebar />
-      <main>{children}</main>
-    </>
+      <div className={"flex w-full text-white flex-row"}>
+          {/*grow to left */}
+          <div className={"grow w-full"} ></div>
+          <Sidebar />
+              <main className="min-h-screen flex w-full">
+                {children}
+              </main>
+          {/*grow to right*/}
+          <div className={"grow w-full"} ></div>
+      </div>
   )
 }

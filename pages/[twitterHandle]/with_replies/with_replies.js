@@ -2,20 +2,23 @@ import React from 'react'
 import { useRouter } from "next/router";
 import Profile from "../../components/profile/Profile";
 import {getTwitterHandle} from "../../api/axios";
+import Layout from "../../../components/layout/Layout";
+import BlockMid from "../../../components/layout/BlockMid";
 
 
 const with_replies = () => {
   const router = useRouter();
   
   return (
-    <main className="bg-black min-h-screen flex max-width-[1500px] mx-auto">
-    <Profile userProfile={userProfile}/>
-  </main>
+    <Layout>
+      <BlockMid>
+        <Profile userProfile={userProfile}/>
+      </BlockMid>
+    </Layout>
   )
 }
 
 export default with_replies
-
 
 export async function getServerSideProps(context) {
   console.log(context.query)

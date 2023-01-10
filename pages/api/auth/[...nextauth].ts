@@ -50,6 +50,22 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.AUTH0_SECRET,
       issuer: process.env.AUTH0_ISSUER,
     }),
+    {
+      id: "kakao",
+      name: "Kakao",
+      type: "oauth",
+      authorization: "localhost:8080/authenticate",
+      token: "https://kauth.kakao.com/oauth/token",
+      userinfo: "https://kapi.kakao.com/v2/user/me",
+      profile(profile) {
+        return {
+          id: profile.id,
+          name: profile.kakao_account?.profile.nickname,
+          email: profile.kakao_account?.email,
+          image: profile.kakao_account?.profile.profile_image_url,
+        }
+      },
+    }
   ],
   theme: {
     colorScheme: "light",

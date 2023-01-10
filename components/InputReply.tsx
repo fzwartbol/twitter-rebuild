@@ -1,8 +1,7 @@
-import { PhotographIcon, XIcon } from '@heroicons/react/outline';
-import { CalendarIcon, ChartBarIcon, EmojiHappyIcon } from '@heroicons/react/solid';
 import React from 'react'
 import { useRef, useState } from 'react';
 import { useRouter } from "next/router";
+import {CalendarIcon, CameraIcon, ChartBarIcon, FaceSmileIcon, XCircleIcon} from "@heroicons/react/24/outline";
 
 function InputReply({passChildData,tweetId}) {
     const router = useRouter();
@@ -63,7 +62,7 @@ function InputReply({passChildData,tweetId}) {
                             rows="2"
                             placeholder="What would you like to reply?"
                             className="bg-black resize-none outline-none text-[#d9d9d9]
-                            text-lg place-holder-gray-500 tracking-wide w-full
+                            text-sm place-holder-gray-500 tracking-wide w-full
                             min-h-[50px]
                             "/>
                     </div>
@@ -82,7 +81,7 @@ disabled:opacity-50 disabled:cursor-default"
             justify-center top-1 left-1 cursor-pointer"
                             onClick={() => setSelectedFile(null)}
                         >
-                            <XIcon className="text-white h-5" />
+                            <XCircleIcon className="text-white h-5" />
                         </div>
                         <img src={selectedFile}
                             alt=""
@@ -95,7 +94,7 @@ disabled:opacity-50 disabled:cursor-default"
                     <div className="flex items-center">
                         <div className="icon"
                             onClick={() => filePickerRef.current.click()}>
-                            <PhotographIcon className="h-[22px] text-[#1d9bf0]"
+                            <CameraIcon className="h-[22px] text-[#1d9bf0]"
                             />
                             <input type="file"
                                 hidden
@@ -108,7 +107,7 @@ disabled:opacity-50 disabled:cursor-default"
                         <div className="icon"
                         // onClick={() => setShowEmojis(!showEmojis)}
                         >
-                            <EmojiHappyIcon className="text-[#1d9bf0] h-[22px]" />
+                            <FaceSmileIcon className="text-[#1d9bf0] h-[22px]" />
                         </div>
                         <div className="icon">
                             <CalendarIcon className="text-[#1d9bf0] h-[22px]" />

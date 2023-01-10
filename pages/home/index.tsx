@@ -15,9 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Layout>
-          <main className="bg-black min-h-screen flex max-width-[1500px] mx-auto">
+          {/*//<main className="bg-black min-h-screen flex max-width-[1500px] mx-auto">*/}
             <Feed />
-          </main>
+          {/*</main>*/}
         </Layout>
     </>
   )

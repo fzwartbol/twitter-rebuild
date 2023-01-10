@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Tweet from './Tweet'
 import { useRouter } from "next/router";
 import InputReply from '../InputReply'
-import { SparklesIcon } from "@heroicons/react/outline";
 import {getTweet} from "../../api/axios";
+import {SparklesIcon} from "@heroicons/react/24/outline";
 
 const TweetDetailPage = () => {
     const [replies, setReplies] = useState(null)
@@ -23,7 +23,7 @@ const TweetDetailPage = () => {
         }, [router.isReady]);
 
   return (
-            <div className="text-white flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
+      <div className={"w-full"}>
             <div className="text-[#d9d9d9] flex items-center
             sm:justify-between py-2 px-3 sticky top-0 z-50 bg-black border-b border-gray-700">
                 <h2 className="text-lg sm:text-xl font-bold">Tweet</h2>
@@ -40,7 +40,7 @@ const TweetDetailPage = () => {
             {replies && replies.map((reply) => <Tweet key= {reply.id} tweet={reply}/>
             )}
             </div>
-         </div>
+      </div>
   )
 }
 

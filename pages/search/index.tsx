@@ -1,14 +1,15 @@
 import React from 'react'
+import Search from '../../components/search/Search'
 import Layout from "../../components/layout/Layout";
 import BlockMid from "../../components/layout/BlockMid";
 import BlockRight from "../../components/layout/blockright/BlockRight";
-import Explore from "../../components/explore/Explore";
 
 const index = () => {
+  
   return (
      <Layout>
          <BlockMid>
-            <Explore />
+            {/*<Search />*/}
          </BlockMid>
          <BlockRight />
     </Layout>

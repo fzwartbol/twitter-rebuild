@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Feed from "../components/feed/Feed";
-import {useRouter} from "next/router";
-import {useState} from "react";
 import Layout from "../components/layout/Layout";
+import BlockRight from "../components/layout/blockright/BlockRight";
+import BlockMid from "../components/layout/BlockMid";
+import TrendListComponent from "../components/layout/blockright/trend/TrendListComponent";
+import SearchBlock from "../components/layout/blockright/search/SearchBlock";
 
 export default function Home() {
   return (
@@ -12,9 +14,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Layout>
-          <main className="bg-black min-h-screen flex max-width-[1500px] mx-auto">
-            <Feed />
-          </main>
+            <BlockMid>
+                {/*<Feed />*/}
+            </BlockMid>
+            <BlockRight>
+                <SearchBlock />
+                <TrendListComponent />
+                <TrendListComponent />
+            </BlockRight >
         </Layout>
     </>
   )

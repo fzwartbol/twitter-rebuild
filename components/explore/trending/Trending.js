@@ -10,15 +10,14 @@ const Trending = ({setSearchQuery}) => {
 
     useEffect(() => {
         getTrendingHashtags()
-        .then(data =>  {
-            setHashtags(data) })
-        },[]);
+        .then(data =>  { setHashtags(data) })},[]);
 
     const hashtagDiv = hashtags && hashtags.map(hashtag =>  { 
-        return (<div className="p-2 hover:cursor-pointer ">
-        <p onClick = { e => returnSearchQuery(e.currentTarget.textContent)} className="font-bold p-1 hover:underline hover:text-gray-200">#{hashtag.hashtagMessage}</p>
-        <p className="text-xs text-gray-500 pl-1">{hashtag.hashtagCount} Tweets</p>
-        </div>
+        return (
+            <div className="p-2 hover:cursor-pointer ">
+                <p onClick = { e => returnSearchQuery(e.currentTarget.textContent)} className="font-bold p-1 hover:underline hover:text-gray-200">#{hashtag.hashtagMessage}</p>
+                <p className="text-xs text-gray-500 pl-1">{hashtag.hashtagCount} Tweets</p>
+            </div>
         )})
 
     return (

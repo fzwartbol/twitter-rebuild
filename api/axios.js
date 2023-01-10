@@ -69,13 +69,8 @@ export const getTopLiked = async ( options = {}) => {
 }
 
 /** Search Paginated */
-export const getSearchTweetsPaginated = async (hashtags = {},pageParam = 1, sortParam = {}, options = {}) => {
-    const params = new URLSearchParams();
-    params.append(`hashtag`,hashtags)
-    params.append(`page`,pageParam)
-    params.append(`sort`,sortParam)
-    const response = await API_BASE_URL.get(`/tweet/paginated/search?hashtag=${encodeURIComponent(hashtags)}&page=${pageParam}&sortBy=${sortParam}`,options)
-    // const response = await API_BASE_URL.get(`/tweet/paginated/search`,params)
+export const getSearchPaginated = async (query = {}, field = {}, pageParam = 1, sortParam = {}, options = {}) => {
+    const response = await API_BASE_URL.get(`/search?q=${encodeURIComponent(query)}&f=${field}&page=${pageParam}&sortBy=${sortParam}`,options)
     return response.data
 }
 

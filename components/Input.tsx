@@ -1,11 +1,9 @@
 import React from 'react'
 import { useRef, useState } from 'react';
-import { PhotographIcon, XIcon } from '@heroicons/react/outline';
-import { CalendarIcon, ChartBarIcon, EmojiHappyIcon } from '@heroicons/react/solid';
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
 import {postTweet} from "../api/axios";
-
+import {CalendarIcon, ChartBarIcon, FaceSmileIcon, PhotoIcon} from "@heroicons/react/24/outline";
 
 const Input =({passChildData}) => {
     const [input, setInput] = useState("");
@@ -57,8 +55,8 @@ const Input =({passChildData}) => {
                         onChange={(e) => setInput(e.target.value)}
                         rows="2" 
                         placeholder="What's happening?" 
-                        className="bg-black resize-none outline-none text-[#d9d9d9]
-                        text-lg place-holder-gray-500 tracking-wide w-full
+                        className="bg-black text-base resize-none outline-none text-[#d9d9d9]
+                         place-holder-gray-500 tracking-wide w-full
                         min-h-[50px]
                         "/>
                     </div>
@@ -82,7 +80,7 @@ const Input =({passChildData}) => {
                             <div className="flex items-center"> 
                             <div className="icon" 
                             onClick={() => filePickerRef.current.click()}>
-                                <PhotographIcon className="h-[22px] text-[#1d9bf0]"
+                                <PhotoIcon className="h-[22px] text-[#1d9bf0]"
                                 />
                                 <input type="file" 
                                 hidden 
@@ -96,7 +94,7 @@ const Input =({passChildData}) => {
                             <div className="icon" 
                             // onClick={() => setShowEmojis(!showEmojis)}
                             >
-                                <EmojiHappyIcon className="text-[#1d9bf0] h-[22px]" />
+                                <FaceSmileIcon className="text-[#1d9bf0] h-[22px]" />
                             </div>
                             <div className="icon">
                                 <CalendarIcon className="text-[#1d9bf0] h-[22px]" />
