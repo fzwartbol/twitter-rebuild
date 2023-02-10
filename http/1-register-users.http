@@ -1,0 +1,92 @@
+### Register User Frederik
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "firstName": "Frederik",
+  "lastName": "Zwartbol",
+  "emailAddress": "frederikzwartbol@gmail.com",
+  "password": "PASSWORD",
+  "twitterHandle": "Freddie",
+  "profileImage": "/profileImage/Frederik.jpg",
+  "profileHeader": "Java Developer",
+  "profileBio": "Loves Programming",
+  "profileBackground": "/profileBackground/incentro-background.png",
+  "location": "Amsterdam",
+  "linkUrl": "https://www.frederikzwartbol.com/"
+
+}
+
+### Register User Dennis
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "firstName": "Dennis",
+  "lastName": "Vonk",
+  "emailAddress": "dennis@dennis.com",
+  "password": "PASSWORD",
+  "twitterHandle": "DennisVonk",
+  "profileImage": "/profileImage/Dennis.jpg",
+  "profileHeader": null,
+  "profileBio": null,
+  "profileBackground": "/profileBackground/incentro-background.png",
+  "location": null,
+  "linkUrl": null
+
+}
+
+### Register User David Cumberbatch
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "firstName": "David",
+  "lastName": "Cumberbatch",
+  "emailAddress": "cumberbatch@cumberbatch.com",
+  "password": "PASSWORD",
+  "twitterHandle": "TheCumberbatch",
+  "profileImage": "/profileImage/cumberbatch.jpg",
+  "profileHeader": "Actor",
+  "profileBio": null,
+  "profileBackground": null,
+  "location": null,
+  "linkUrl": null
+}
+
+### Register User The Rock
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "firstName": "Dwayne",
+  "lastName": "Johnson",
+  "emailAddress": "dwayne@therock.com",
+  "password": "PASSWORD",
+  "twitterHandle": "TheRock",
+  "profileImage": "/profileImage/therock.jpg",
+  "profileHeader": "Actor",
+  "profileBio": null,
+  "profileBackground": null,
+  "location": "Somewhere in the desert!",
+  "linkUrl": null
+}
+
+### Register User Elon Musk
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "firstName": "Elon",
+  "lastName": "Musk",
+  "emailAddress": "technoking@twitter.com",
+  "password": "PASSWORD",
+  "twitterHandle": "elonmusk",
+  "profileImage": "/profileImage/therock.jpg",
+  "profileHeader": "",
+  "profileBio": null,
+  "profileBackground": null,
+  "location": "Somewhere in the desert!",
+  "linkUrl": null
+}
+

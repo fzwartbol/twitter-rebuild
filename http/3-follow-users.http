@@ -1,0 +1,12 @@
+
+### Follow User 3
+POST http://localhost:8080/users/3/follow/1
+
+### Follow User 4
+POST http://localhost:8080/users/4/follow/1
+
+### Follow User 5
+POST http://localhost:8080/users/5/follow/1
+
+### Follow User 2 follows User 1
+POST http://localhost:8080/users/1/follow/2

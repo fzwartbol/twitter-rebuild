@@ -1,0 +1,102 @@
+### Authenticate User 1 Frederik
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=frederikzwartbol@gmail.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenFrederik", response.body.accessToken);
+%}
+
+### Posting Tweet User 1 Frederik
+POST http://localhost:8080/tweets
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
+
+{
+  "tweetId": null,
+  "message": "Dit is mijn eerst tweet! #firstTweet",
+  "userId": 1,
+  "category": null,
+  "containsMedia": false,
+  "mediaUrl": null,
+  "mediaType": null
+}
+
+### Authenticate User 2 Dennis
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=dennis@dennis.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenDennis", response.body.accessToken);
+%}
+
+
+### Posting Tweet User 2 Dennis
+POST http://localhost:8080/tweets
+Authorization: Bearer {{authTokenDennis}}
+Content-Type: application/json
+
+{
+  "tweetId": null,
+  "message": "Hey, wat leuk. Doet alles het al?",
+  "userId": 2,
+  "category": null,
+  "containsMedia": false,
+  "mediaUrl": null,
+  "mediaType": null
+}
+
+### Authenticate User 4 The Rock
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=dwayne@therock.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenDwayne", response.body.accessToken);
+%}
+
+
+### Posting Tweet User 4 The Rock
+POST http://localhost:8080/tweets
+Authorization: Bearer {{authTokenDwayne}}
+Content-Type: application/json
+
+{
+  "tweetId": null,
+  "message": "Have you seen my new movie? #TheRock",
+  "userId": 4,
+  "category": null,
+  "containsMedia": false,
+  "mediaUrl": null,
+  "mediaType": null
+}
+
+### Authenticate User 5 Elon Musk
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=technoking@twitter.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenDwayne", response.body.accessToken);
+%}
+
+
+### Posting Tweet User 4 Elon Musk
+POST http://localhost:8080/tweets
+Authorization: Bearer {{authTokenDennis}}
+Content-Type: application/json
+
+{
+  "tweetId": null,
+  "message": "The new SpaceX falcon flight will go to Mars! #Mars #SpaceX",
+  "userId": 5,
+  "category": null,
+  "containsMedia": false,
+  "mediaUrl": null,
+  "mediaType": null
+}

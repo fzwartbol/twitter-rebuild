@@ -1,0 +1,20 @@
+### Authenticate User 1 Frederik
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=frederikzwartbol@gmail.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenFrederik", response.body.accessToken);
+%}
+
+### Posting Tweet User 1 Frederik
+POST http://localhost:8080/tweets/2/reply
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
+
+{
+  "tweetId": null,
+  "message": "En dit is mijn eerste reply! #firstReply",
+  "userId": 1
+}
