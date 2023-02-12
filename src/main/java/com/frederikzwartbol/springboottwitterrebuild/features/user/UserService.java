@@ -2,18 +2,17 @@ package com.frederikzwartbol.springboottwitterrebuild.features.user;
 
 import com.frederikzwartbol.springboottwitterrebuild.features.authentication.CustomUserDetailsService;
 import com.frederikzwartbol.springboottwitterrebuild.features.authentication.Credentials;
-import com.frederikzwartbol.springboottwitterrebuild.exceptions.UserNotFoundException;
+import com.frederikzwartbol.springboottwitterrebuild.exceptions.exceptions.UserNotFoundException;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserRequest;
-import com.frederikzwartbol.springboottwitterrebuild.util.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class UserService {
     private final UserRepository userRepository;
     private final CustomUserDetailsService customUserDetailsService;

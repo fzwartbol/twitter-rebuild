@@ -3,13 +3,15 @@ package com.frederikzwartbol.springboottwitterrebuild.features.user;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserMinimalDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserRequest;
-import com.frederikzwartbol.springboottwitterrebuild.util.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +30,7 @@ public class UserController implements UserOperations {
                 HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Override
     public ResponseEntity<?> saveUser(@RequestBody UserRequest userRequest) {
         if (userService.existsByEmailAddress(userRequest.getEmailAddress())) {

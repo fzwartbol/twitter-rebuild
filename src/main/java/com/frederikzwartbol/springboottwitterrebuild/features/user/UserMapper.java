@@ -1,4 +1,4 @@
-package com.frederikzwartbol.springboottwitterrebuild.util.mapper;
+package com.frederikzwartbol.springboottwitterrebuild.features.user;
 
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.ProfileInformation;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserDTO;

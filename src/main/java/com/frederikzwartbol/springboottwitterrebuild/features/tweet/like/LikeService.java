@@ -2,7 +2,7 @@ package com.frederikzwartbol.springboottwitterrebuild.features.tweet.like;
 
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.like.model.LikeRequest;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.like.model.LikeResponseDTO;
-import com.frederikzwartbol.springboottwitterrebuild.exceptions.TweetNotFoundException;
+import com.frederikzwartbol.springboottwitterrebuild.exceptions.exceptions.TweetNotFoundException;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.like.model.Like;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.Tweet;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.TweetRepository;

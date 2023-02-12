@@ -4,6 +4,7 @@ import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.Us
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserMinimalDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public interface UserOperations {
     ResponseEntity<List<UserMinimalDTO>> findAllUsers();
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     ResponseEntity<?> saveUser(@RequestBody UserRequest request);
     @GetMapping("/{userId}")
     ResponseEntity<UserDTO> findUserById(@PathVariable("userId") Long userId);

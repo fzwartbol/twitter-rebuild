@@ -1,4 +1,4 @@
-package com.frederikzwartbol.springboottwitterrebuild.features.authentication;
+package com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
+public class JwtAuthFilterEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws ServletException, IOException {
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());

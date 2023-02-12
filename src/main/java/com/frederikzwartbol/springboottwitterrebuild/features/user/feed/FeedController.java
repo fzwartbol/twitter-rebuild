@@ -1,7 +1,7 @@
 package com.frederikzwartbol.springboottwitterrebuild.features.user.feed;
 
 import com.frederikzwartbol.springboottwitterrebuild.aspect.UserScope;
-import com.frederikzwartbol.springboottwitterrebuild.util.mapper.TweetMapper;
+import com.frederikzwartbol.springboottwitterrebuild.features.tweet.TweetMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +14,9 @@ import java.util.Optional;
 @Slf4j
 public class FeedController implements FeedOperations {
     private final FeedService feedService;
-    @Override
     @UserScope
+    @Override
     public ResponseEntity<?> findFeedOfUser(Long userId, Optional<Integer> page, Optional<String> sortBy) {
-        log.debug("trigger");
         return ResponseEntity.ok(
                 feedService.findFeedForUser(userId,page,sortBy)
                 .map(TweetMapper::createMinimalTweetDTO));

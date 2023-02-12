@@ -6,7 +6,7 @@ spring:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
     format_sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -20,4 +20,4 @@ logging:
         type: trace
 app:
   frontend-basepath: http://localhost:3000
-  secret: secretpassword
+  secret: secret

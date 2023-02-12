@@ -1,6 +1,6 @@
 package com.frederikzwartbol.springboottwitterrebuild.features.tweet;
 
-import com.frederikzwartbol.springboottwitterrebuild.exceptions.TweetNotFoundException;
+import com.frederikzwartbol.springboottwitterrebuild.exceptions.exceptions.TweetNotFoundException;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.MetaTweetResponseDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.category.CategoryService;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.hashtag.HashtagService;

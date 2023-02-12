@@ -2,7 +2,7 @@ package com.frederikzwartbol.springboottwitterrebuild.features.authentication.co
 
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.dto.UserRequest;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.UserService;
-import com.frederikzwartbol.springboottwitterrebuild.util.mapper.UserMapper;
+import com.frederikzwartbol.springboottwitterrebuild.features.user.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -3,10 +3,7 @@ package com.frederikzwartbol.springboottwitterrebuild.features.authentication.mo
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.util.Objects;
 
@@ -22,6 +19,8 @@ public class Role {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
+
+    @Column(unique = true)
     private String role;
 
     @Override

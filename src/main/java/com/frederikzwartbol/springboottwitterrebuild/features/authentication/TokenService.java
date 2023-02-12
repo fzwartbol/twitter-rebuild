@@ -26,7 +26,6 @@ public class TokenService {
     private final CustomUserDetailsService customUserDetailsService;
 
 
-
     public String createAccessToken(UserDetails user) {
         return JWT.create()
                 .withSubject(user.getUsername())

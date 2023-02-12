@@ -1,9 +1,8 @@
-package com.frederikzwartbol.springboottwitterrebuild.util.mapper;
+package com.frederikzwartbol.springboottwitterrebuild.features.tweet;
 
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.MetaTweetResponseDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.TweetDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.TweetMinimalDTO;
-import com.frederikzwartbol.springboottwitterrebuild.features.tweet.Tweet;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Optional;

@@ -3,7 +3,6 @@ package com.frederikzwartbol.springboottwitterrebuild.features.tweet;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.TweetDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.TweetMinimalDTO;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.models.dto.TweetRequest;
-import com.frederikzwartbol.springboottwitterrebuild.util.mapper.TweetMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

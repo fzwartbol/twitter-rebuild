@@ -1,4 +1,4 @@
-package com.frederikzwartbol.springboottwitterrebuild.exceptions;
+package com.frederikzwartbol.springboottwitterrebuild.exceptions.exceptions;
 
 public class AuthTokenInvalidException extends RuntimeException {
     public AuthTokenInvalidException(String message) {

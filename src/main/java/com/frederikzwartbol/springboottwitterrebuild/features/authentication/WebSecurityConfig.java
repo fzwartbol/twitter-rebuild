@@ -1,7 +1,7 @@
-package com.frederikzwartbol.springboottwitterrebuild.features.authentication.config;
+package com.frederikzwartbol.springboottwitterrebuild.features.authentication;
 
 
-import com.frederikzwartbol.springboottwitterrebuild.features.authentication.JwtAuthEntryPoint;
+import com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters.JwtAuthFilterEntryPoint;
 import com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters.JWTAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -25,9 +26,10 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
-    private final JwtAuthEntryPoint authEntryPoint;
+    private final JwtAuthFilterEntryPoint authEntryPoint;
     @Value("${app.frontend-basepath}")
     private final String BASEPATH_FRONTEND ="http://localhost:3000";
 
@@ -43,7 +45,6 @@ public class WebSecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/**").permitAll()
                 .antMatchers("/authenticate/**").permitAll()
                 .antMatchers("/register").permitAll()
                 .anyRequest().authenticated()
