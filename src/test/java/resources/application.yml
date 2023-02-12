@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    jdbc:tc:postgresql:12.9-alpine:///spring_boot_testcontainers
+  test:
+    database:
+      replace: none
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jackson:
+    serialization:
+      fail_on_empty_beans: false
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
