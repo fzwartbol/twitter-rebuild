@@ -91,7 +91,7 @@ class AuthenticationControllerIntegrationTest {
     @Test
     void whenAuthenticateRefreshTokenIsValid_thenReturnResponseOk() throws Exception {
         mockMvc.perform(post("/authenticate/refresh"))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isOk());
     }
 
     @Test
