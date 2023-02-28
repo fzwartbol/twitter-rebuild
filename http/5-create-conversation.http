@@ -1,0 +1,47 @@
+### Authenticate User 1 Frederik
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=frederikzwartbol@gmail.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenFrederik", response.body.accessToken);
+%}
+
+### Creating a conversation
+### Posting Message to Conversation
+POST http://localhost:8080/conversations
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
+
+{
+  "userIds": [1,2,3]
+}
+
+> {%
+    client.global.set("conversationid1", response.body.id);
+%}
+### Posting Message to Conversation
+POST http://localhost:8080/conversations/messages
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
+
+{
+  "id": null,
+  "message": "This is a message",
+  "senderId": 1,
+  "conversationId": 6
+}
+
+
+### Posting Message 2 to Conversation
+POST http://localhost:8080/conversations/messages
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
+
+{
+  "id": null,
+  "message": "This is another message",
+  "senderId": 2,
+  "conversationId": 6
+}

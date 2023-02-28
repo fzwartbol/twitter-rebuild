@@ -3,9 +3,9 @@ package com.frederikzwartbol.springboottwitterrebuild.features.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.frederikzwartbol.springboottwitterrebuild.features.authentication.Credentials;
+import com.frederikzwartbol.springboottwitterrebuild.features.conversation.Conversation;
 import com.frederikzwartbol.springboottwitterrebuild.features.user.models.ProfileInformation;
 import com.frederikzwartbol.springboottwitterrebuild.features.category.Category;
-import com.frederikzwartbol.springboottwitterrebuild.features.user.message.Message;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.Tweet;
 import lombok.*;
 
@@ -75,14 +75,15 @@ public class User {
     /**
      * Messages implementation
      */
+    @JoinTable(name = "User_conversations",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "conversation_id")})
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Conversation> conversations;
 
-    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = {"followers", "following", "sendMessages"})
-    private Set<Message> sendMessages = new HashSet<>();
-
-    @OneToMany(mappedBy = "receiver", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = {"followers", "following", "tweets"})
-    private Set<Message> receivedMessages = new HashSet<>();
+    public void addConversation (Conversation conversation) {
+        conversations.add(conversation);
+    }
 
     /**
      * Authentication implementation
