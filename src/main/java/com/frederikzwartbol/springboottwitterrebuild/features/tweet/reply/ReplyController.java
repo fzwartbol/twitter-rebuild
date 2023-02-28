@@ -3,6 +3,7 @@ package com.frederikzwartbol.springboottwitterrebuild.features.tweet.reply;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.TweetService;
 import com.frederikzwartbol.springboottwitterrebuild.features.tweet.reply.models.ReplyRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class ReplyController implements ReplyOperations {
     }
     @Override
     public ResponseEntity<?> deleteReply(Long id, ReplyRequest request) {
-        return null;
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

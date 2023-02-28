@@ -18,6 +18,7 @@ logging:
     org:
       hibernate:
         type: trace
+#    root: debug
 app:
   frontend-basepath: http://localhost:3000
   secret: secret
