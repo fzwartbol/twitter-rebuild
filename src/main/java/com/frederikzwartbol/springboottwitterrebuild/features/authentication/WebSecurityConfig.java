@@ -3,6 +3,8 @@ package com.frederikzwartbol.springboottwitterrebuild.features.authentication;
 
 import com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters.JwtAuthFilterEntryPoint;
 import com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters.JWTAuthenticationFilter;
+import com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters.RedirectFilter;
+import com.frederikzwartbol.springboottwitterrebuild.features.authentication.filters.ServicesClientFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -30,6 +32,7 @@ import java.util.List;
 public class WebSecurityConfig {
 
     private final JwtAuthFilterEntryPoint authEntryPoint;
+
     @Value("${app.frontend-basepath}")
     private final String BASEPATH_FRONTEND ="http://localhost:3000";
 
@@ -45,13 +48,19 @@ public class WebSecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/authenticate/**").permitAll()
-                .antMatchers("/register").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
+//                .antMatchers("/authenticate/**").permitAll()
+//                .antMatchers("/register").permitAll()
+//                .anyRequest().authenticated()
                 .and()
                 .httpBasic();
 
+        // possible to add filters which are a bean
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(redirectFilter(), UsernamePasswordAuthenticationFilter.class);
+        // possible to add filters which aren't a bean
+        http.addFilterBefore(new ServicesClientFilter(), UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
@@ -81,6 +90,9 @@ public class WebSecurityConfig {
     public  JWTAuthenticationFilter jwtAuthenticationFilter() {
         return new JWTAuthenticationFilter();
     }
+
+    @Bean
+    public RedirectFilter redirectFilter() {return  new RedirectFilter();}
 
     @Bean
     PasswordEncoder passwordEncoder() {
