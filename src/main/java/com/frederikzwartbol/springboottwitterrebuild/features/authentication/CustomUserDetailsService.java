@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -32,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     // for demonstration purposes
     @PostConstruct
     void init() {
-        log.debug("Post construct CustomUserDetailsService bea");
+        log.debug("Post construct method after CustomUserDetailsService bean creation.");
         roleRepository.save(new Role(null,"USER"));
         roleRepository.save(new Role(null,"ADMIN"));
     }
