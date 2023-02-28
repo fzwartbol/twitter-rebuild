@@ -22,9 +22,9 @@ import java.util.Set;
 @Entity
 @Table(name = "tweets")
 @Builder
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Tweet {
     @SequenceGenerator(name = "tweet_sequence",

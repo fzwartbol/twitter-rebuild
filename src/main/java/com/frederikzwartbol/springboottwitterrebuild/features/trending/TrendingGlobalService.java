@@ -23,7 +23,6 @@ public class TrendingGlobalService {
     private final TweetRepository tweetRepository;
     private final CategoryRepository categoryRepository;
 
-
     public List<Tweet> getTopRepliedTweets() {
         return tweetRepository.getTopRepliedTweets()
                 .stream()

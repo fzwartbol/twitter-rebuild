@@ -1,12 +1,34 @@
+### Authenticate User 1 Frederik
+POST http://localhost:8080/authenticate
+Content-Type: application/x-www-form-urlencoded
+
+username=frederikzwartbol@gmail.com&password=PASSWORD
+
+> {%
+    client.global.set("authTokenFrederik", response.body.accessToken);
+%}
+
+### Follow User 1
+POST http://localhost:8080/users/1/follow/1
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
 
 ### Follow User 3
 POST http://localhost:8080/users/3/follow/1
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
 
 ### Follow User 4
 POST http://localhost:8080/users/4/follow/1
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
 
 ### Follow User 5
 POST http://localhost:8080/users/5/follow/1
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
 
 ### Follow User 2 follows User 1
 POST http://localhost:8080/users/1/follow/2
+Authorization: Bearer {{authTokenFrederik}}
+Content-Type: application/json
