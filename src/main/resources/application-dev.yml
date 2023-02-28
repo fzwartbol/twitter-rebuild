@@ -1,3 +1,9 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/twitterdb
@@ -13,12 +19,17 @@ spring:
   jackson:
     serialization:
       fail_on_empty_beans: false
+
 logging:
   level:
     org:
-      hibernate:
-        type: trace
-#    root: debug
+      springframework:
+        web: DEBUG
+        security: INFO
+        data: INFO
+    com:
+      frederikzwartbol:
+        springboottwitterrebuild: DEBUG
 app:
   frontend-basepath: http://localhost:3000
   secret: secret
